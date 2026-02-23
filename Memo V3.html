@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        :root {
+            --rebelle: #e63946;
+            --solaire: #ffb703;
+            --lunaire: #219ebc;
+            --bg-card: #ffffff;
+        }
+        body { font-family: sans-serif; display: flex; flex-wrap: wrap; gap: 20px; background: #f0f0f0; }
+        
+        /* Conteneur de la Carte */
+        .card {
+            width: 350px;
+            height: 500px;
+            background: var(--bg-card);
+            border-radius: 15px;
+            border: 2px solid #ddd;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.1);
+        }
+
+        /* Header : Nom, Type et Badge Rebelle */
+        .header { display: flex; justify-content: space-between; align-items: center; }
+        .type-icon { font-size: 24px; }
+        .letter-name { font-size: 20px; font-weight: bold; text-transform: uppercase; }
+        .rebelle-badge { 
+            background: var(--rebelle); color: white; padding: 2px 8px; 
+            border-radius: 5px; font-size: 12px; font-weight: bold;
+        }
+
+        /* Centre : La Lettre Géante */
+        .main-letter {
+            text-align: center;
+            font-size: 120px;
+            margin: 10px 0;
+            color: #333;
+        }
+
+        /* Section Phonétique et Son */
+        .son-box {
+            text-align: center;
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 10px;
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        /* Section Formes (Début, Milieu, Fin) */
+        .positions {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 20px;
+            direction: rtl; /* Pour l'ordre arabe */
+        }
+        .pos-item {
+            border: 1px dashed #ccc;
+            padding: 10px;
+            text-align: center;
+            border-radius: 8px;
+        }
+        .pos-ar { font-size: 30px; display: block; margin-bottom: 5px; }
+        .pos-label { font-size: 10px; color: #666; text-transform: uppercase; }
+
+        /* Section Darija (Le "Code Algérien") */
+        .darija-section {
+            margin-top: auto;
+            border-top: 2px solid #eee;
+            padding-top: 10px;
+        }
+        .darija-title { font-size: 12px; color: #888; margin-bottom: 5px; }
+        .darija-words { font-style: italic; font-weight: bold; color: #444; }
+        
+        .highlight { color: var(--rebelle); }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <div class="header">
+            <span class="type-icon">🌙</span>
+            <span class="letter-name">Alif</span>
+            <span class="rebelle-badge">REBELLE</span>
+        </div>
+        <div class="main-letter">أ</div>
+        <div class="son-box">SON : A</div>
+        <div class="positions">
+            <div class="pos-item">
+                <span class="pos-ar">أَ</span>
+                <span class="pos-label">Début</span>
+            </div>
+            <div class="pos-item">
+                <span class="pos-ar">ـأ</span>
+                <span class="pos-label">Milieu</span>
+            </div>
+            <div class="pos-item">
+                <span class="pos-ar">ـأ</span>
+                <span class="pos-label">Fin</span>
+            </div>
+        </div>
+        <div class="darija-section">
+            <div class="darija-title">TRIO DARIJA :</div>
+            <div class="darija-words">Ana (Moi), Lard (Sol), Asad (Lion)</div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="header">
+            <span class="type-icon">🌙</span>
+            <span class="letter-name">Bāʾ</span>
+            <span></span> </div>
+        <div class="main-letter">ب</div>
+        <div class="son-box">SON : B</div>
+        <div class="positions">
+            <div class="pos-item">
+                <span class="pos-ar">بـ</span>
+                <span class="pos-label">Début</span>
+            </div>
+            <div class="pos-item">
+                <span class="pos-ar">ـبـ</span>
+                <span class="pos-label">Milieu</span>
+            </div>
+            <div class="pos-item">
+                <span class="pos-ar">ـب</span>
+                <span class="pos-label">Fin</span>
+            </div>
+        </div>
+        <div class="darija-section">
+            <div class="darija-title">TRIO DARIJA :</div>
+            <div class="darija-words">Batata (P.terre), Lba7r (Mer), Baba (Papa)</div>
+        </div>
+    </div>
+
+    <div class="card" style="border-color: var(--solaire);">
+        <div class="header">
+            <span class="type-icon" style="color:var(--solaire)">☀️</span>
+            <span class="letter-name">Ṣād</span>
+            <span></span>
+        </div>
+        <div class="main-letter">ص</div>
+        <div class="son-box">SON : S (LOURD)</div>
+        <div class="positions">
+            <div class="pos-item"><span class="pos-ar">صـ</span><span class="pos-label">Début</span></div>
+            <div class="pos-item"><span class="pos-ar">ـصـ</span><span class="pos-label">Milieu</span></div>
+            <div class="pos-item"><span class="pos-ar">ـص</span><span class="pos-label">Fin</span></div>
+        </div>
+        <div class="darija-section">
+            <div class="darija-title">TRIO DARIJA :</div>
+            <div class="darija-words">Sa7bi (Pote), Sa7 (Vrai), S7ab (Amis)</div>
+        </div>
+    </div>
+
+</body>
+</html>
