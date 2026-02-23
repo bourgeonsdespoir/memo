@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Maître Alpha Algérien — Jeu de Mémo Complet</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body { font-family: 'Segoe UI', Arial, sans-serif; background:#fff; }
+
+/* ✅ 3 pages A4 : compact 7 colonnes × 8 lignes = 56 cartes/page */
+.page{
+  width:210mm;
+  height:297mm;                 /* clé: hauteur fixe (évite page 4) */
+  padding:6mm;
+  background:#fff;
+  page-break-after:always;
+
+  display:grid;
+  grid-template-columns:repeat(7, 1fr);
+  gap:2mm;
+  align-content:start;
+}
+.page:last-child{ page-break-after:auto; }
+
+.card{
+  border:0.35mm solid #111;
+  display:flex;
+  flex-direction:column;
+  height:33mm;                  /* clé: 8 lignes */
+  background:#fff;
+  overflow:hidden;
+
+  break-inside:avoid;
+  page-break-inside:avoid;
+}
+
+/* header */
+.hd{
+  padding:1mm 1.6mm 0.4mm;
+  font-size:5pt;
+  text-transform:uppercase;
+  letter-spacing:0.6px;
+  font-weight:700;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-shrink:0;
+}
+
+/* letter zone */
+.lz{
+  flex:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  direction:rtl;
+  overflow:hidden;
+}
+
+/* footer */
+.ft{
+  padding:0 1.6mm 1mm;
+  font-size:5.4pt;
+  line-height:1.25;
+  flex-shrink:0;
+}
+.ft strong{ font-size:6.1pt; }
+.ft em{ color:#888; font-size:5.1pt; }
+
+/* card type 1 */
+.c1 .hd{ color:#999; font-size:5.4pt; }
+.c1 .lz{ font-size:22pt; line-height:1; }
+.c1 .ft{
+  display:flex;
+  justify-content:space-around;
+  align-items:center;
+  direction:rtl;
+  font-size:7pt;
+  color:#bbb;
+  padding-bottom:1.1mm;
+}
+.c1 .ft .sep{ color:#ddd; }
+
+/* card type 2 */
+.c2 .lz{
+  font-size:14pt;
+  font-weight:800;
+  letter-spacing:0.6px;
+  direction:ltr;
+  color:#111;
+}
+
+/* position cards */
+.cpos .lz{ font-size:11pt; line-height:1.1; }
+.cpos .lz .ctx{ color:#ccc; }
+.cpos .lz .tgt{ color:#000; font-size:15pt; font-weight:800; }
+
+/* vowel cards */
+.cvoy .hd{ font-size:5.2pt; }
+.cvoy .lz{
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+}
+.cvoy .lz .signe{
+  font-size:21pt;
+  direction:rtl;
+  line-height:1.1;
+  color:#111;
+}
+.cvoy .lz .signe .base{ color:#ccc; }
+.cvoy .lz .son-txt{
+  font-size:11.5pt;
+  font-weight:800;
+  letter-spacing:0.6px;
+  direction:ltr;
+  color:#111;
+  margin-top:-0.6mm;
+}
+
+/* separator line */
+.spacer{ grid-column:1 / -1; height:1mm; }
+
+@media screen{
+  body{ background:#aaa; padding:10px; }
+  .page{ margin:0 auto 20px; box-shadow:0 2px 8px rgba(0,0,0,0.3); }
+}
+
+@media print{
+  body{ background:#fff; padding:0; margin:0; }
+  .page{ margin:0; box-shadow:none; width:210mm; height:297mm; padding:6mm; }
+  *{ -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════════════════
+     PAGE 1
+     ══════════════════════════════════════════════════════════════ -->
+<div class="page">
+
+<!-- ─── أ Alif ─── -->
+<div class="card c1">
+  <div class="hd"><span>أ</span><span>🌙 ★</span></div>
+  <div class="lz">أ</div>
+  <div class="ft"><span>أـ</span><span class="sep">|</span><span>ـأـ</span><span class="sep">|</span><span>ـأ</span></div>
+</div>
+<div class="card c2">
+  <div class="hd"><span>Alif</span><span>/ A /</span></div>
+  <div class="lz">Alif</div>
+  <div class="ft"><strong>Ana</strong> — <em>moi</em><br><strong>Lard</strong> — <em>sol</em><br><strong>Asad</strong> — <em>lion</em></div>
+</div>
+<div class="card cpos">
+  <div class="hd"><span>▶</span><span>أـ</span></div>
+  <div class="lz"><span><span class="tgt">أَ</span><span class="ctx">نَا</span></span></div>
+  <div class="ft"><strong>ANA</strong> — <em>moi</em></div>
+</div>
+<div class="card cpos">
+  <div class="hd"><span>◆</span><span>ـأـ</span></div>
+  <div class="lz"><span><span class="ctx">كَـ</span><span class="tgt">أْ</span><span class="ctx">س</span></span></div>
+  <div class="ft"><strong>KA'S</strong> — <em>verre</em></div>
+</div>
+<div class="card cpos">
+  <div class="hd"><span>◀</span><span>ـأ</span></div>
+  <div class="lz"><span><span class="ctx">مَبْدَ</span><span class="tgt">أ</span></span></div>
+  <div class="ft"><strong>MABDA</strong> — <em>principe</em></div>
+</div>
+
+<!-- ─── ب Bāʾ ─── -->
+<div class="card c1">
+  <div class="hd"><span>ب</span><span>🌙</span></div>
+  <div class="lz">ب</div>
+  <div class="ft"><span>بـ</span><span class="sep">|</span><span>ـبـ</span><span class="sep">|</span><span>ـب</span></div>
+</div>
+<div class="card c2">
+  <div class="hd"><span>Bāʾ</span><span>/ B /</span></div>
+  <div class="lz">Bāʾ</div>
+  <div class="ft"><strong>Batata</strong> — <em>p.terre</em><br><strong>Lba7r</strong> — <em>mer</em><br><strong>Baba</strong> — <em>papa</em></div>
+</div>
+<div class="card cpos">
+  <div class="hd"><span>▶</span><span>بـ</span></div>
+  <div class="lz"><span><span class="tgt">بَـ</span><span class="ctx">طَاطَا</span></span></div>
+  <div class="ft"><strong>BATATA</strong> — <em>p.terre</em></div>
+</div>
+<div class="card cpos">
+  <div class="hd"><span>◆</span><span>ـبـ</span></div>
+  <div class="lz"><span><span class="ctx">كِـ</span><span class="tgt">بَـ</span><span class="ctx">ار</span></span></div>
+  <div class="ft"><strong>KIBAR</strong> — <em>grands</em></div>
+</div>
+<div class="card cpos">
+  <div class="hd"><span>◀</span><span>ـب</span></div>
+  <div class="lz"><span><span class="ctx">كَلْـ</span><span class="tgt">ب</span></span></div>
+  <div class="ft"><strong>KALB</strong> — <em>chien</em></div>
+</div>
+
+<!-- ─── ت Tāʾ ─── -->
+<div class="card c1">
+  <div class="hd"><span>ت</span><span>☀️</span></div>
+  <div class="lz">ت</div>
+  <div class="ft"><span>تـ</span><span class="sep">|</span><span>ـتـ</span><span class="sep">|</span><span>ـت</span></div>
+</div>
+<div class="card c2">
+  <div class="hd"><span>Tāʾ</span><span>/ T /</span></div>
+  <div class="lz">Tāʾ</div>
+  <div class="ft"><strong>Tabla</strong> — <em>table</em><br><strong>Touma</strong> — <em>ail</em><br><strong>Tmer</strong> — <em>dattes</em></div>
+</div>
+<div class="card cpos">
+  <div class="hd"><span>▶</span><span>تـ</span></div>
+  <div class="lz"><span><span class="tgt">تَـ</span><span class="ctx">مْر</span></span></div>
+  <div class="ft"><strong>TMER</strong> — <em>dattes</em></div>
+</div>
+<div class="card cpos">
+  <div class="hd"><span>◆</span><span>ـتـ</span></div>
+  <div class="lz"><span><span class="ctx">كِـ</span><span class="tgt">تَـ</span><span class="ctx">اب</span></span></div>
+  <div class="ft"><strong>KITAB</strong> — <em>livre</em></div>
+</div>
+<div class="card cpos">
+  <div class="hd"><span>◀</span><span>ـت</span></div>
+  <div class="lz"><span><span class="ctx">بَيْـ</span><span class="tgt">ت</span></span></div>
+  <div class="ft"><strong>BAYT</strong> — <em>maison</em></div>
+</div>
+
+<!-- ─── ث Thāʾ ─── -->
+<div class="card c1">
+  <div class="hd"><span>ث</span><span>☀️</span></div>
+  <div class="lz">ث</div>
+  <div class="ft"><span>ثـ</span><span class="sep">|</span><span>ـثـ</span><span class="sep">|</span><span>ـث</span></div>
+</div>
+<div class="card c2">
+  <div class="hd"><span>Thāʾ</span><span>/ TH /</span></div>
+  <div class="lz">Thāʾ</div>
+  <div class="ft"><strong>Thlata</strong> — <em>3</em><br><strong>Thalj</strong> — <em>neige</em><br><strong>Thnaya</strong> — <em>route</em></div>
+</div>
+<div class="card cpos">
+  <div class="hd"><span>▶</span><span>ثـ</span></div>
+  <div class="lz"><span><span class="tgt">ثَـ</span><span class="ctx">لْج</span></span></div>
+  <div class="ft"><strong>THALJ</strong> — <em>neige</em></div>
+</div>
+<div class="card cpos">
+  <div class="hd"><span>◆</span><span>ـثـ</span></div>
+  <div class="lz"><span><span class="ctx">كَـ</span><span class="tgt">ثِـ</span><span class="ctx">ير</span></span></div>
+  <div class="ft"><strong>KATHIR</strong> — <em>beaucoup</em></div>
+</div>
+<div class="card cpos">
+  <div class="hd"><span>◀</span><span>ـث</span></div>
+  <div class="lz"><span><span class="ctx">حَدِيـ</span><span class="tgt">ث</span></span></div>
+  <div class="ft"><strong>HADITH</strong> — <em>récit</em></div>
+</div>
+
+<!-- ─── ج Jīm ─── -->
+<div class="card c1">
+  <div class="hd"><span>ج</span><span>🌙</span></div>
+  <div class="lz">ج</div>
+  <div class="ft"><span>جـ</span><span class="sep">|</span><span>ـجـ</span><span class="sep">|</span><span>ـج</span></div>
+</div>
+<div class="card c2">
+  <div class="hd"><span>Jīm</span><span>/ J /</span></div>
+  <div class="lz">Jīm</div>
+  <div class="ft"><strong>Jadj</strong> — <em>poulet</em><br><strong>Jebna</strong> — <em>ramené</em><br><strong>Rjel</strong> — <em>hommes</em></div>
+</div>
+<div class="card cpos">
+  <div class="hd"><span>▶</span><span>جـ</span></div>
+  <div class="lz"><span><span class="tgt">جَـ</span><span class="ctx">اج</span></span></div>
+  <div class="ft"><strong>JADJ</strong> — <em>poulet</em></div>
+</div>
+<div class="card cpos">
+  <div class="hd"><span>◆</span><span>ـجـ</span></div>
+  <div class="lz"><span><span class="ctx">رَ</span><span class="tgt">جُـ</span><span class="ctx">ل</span></span></div>
+  <div class="ft"><strong>RAJUL</strong> — <em>homme</em></div>
+</div>
+<div class="card cpos">
+  <div class="hd"><span>◀</span><span>ـج</span></div>
+  <div class="lz"><span><span class="ctx">ثَلْـ</span><span class="tgt">ج</span></span></div>
+  <div class="ft"><strong>THALJ</strong> — <em>neige</em></div>
+</div>
+
+<!-- ─── ح Ḥāʾ ─── -->
+<div class="card c1">
+  <div class="hd"><span>ح</span><span>🌙</span></div>
+  <div class="lz">ح</div>
+  <div class="ft"><span>حـ</span><span class="sep">|</span><span>ـحـ</span><span class="sep">|</span><span>ـح</span></div>
+</div>
+<div class="card c2">
+  <div class="hd"><span>Ḥāʾ</span><span>/ 7 /</span></div>
+  <div class="lz">Ḥāʾ</div>
+  <div class="ft"><strong>7lib</strong> — <em>lait</em><br><strong>7out</strong> — <em>poisson</em><br><strong>7amoud</strong> — <em>citron</em></div>
+</div>
+<div class="card cpos">
+  <div class="hd"><span>▶</span><span>حـ</span></div>
+  <div class="lz"><span><span class="tgt">حَـ</span><span class="ctx">ليب</span></span></div>
+  <div class="ft"><strong>7LIB</strong> — <em>lait</em></div>
+</div>
+<div class="card cpos">
+  <div class="hd"><span>◆</span><span>ـحـ</span></div>
+  <div class="lz"><span><span class="ctx">لَـ</span><span class="tgt">حْـ</span><span class="ctx">م</span></span></div>
+  <div class="ft"><strong>LA7M</strong> — <em>viande</em></div>
+</div>
+<div class="card cpos">
+  <div class="hd"><span>◀</span><span>ـح</span></div>
+  <div class="lz"><span><span class="ctx">مِلْـ</span><span class="tgt">ح</span></span></div>
+  <div class="ft"><strong>MIL7</strong> — <em>sel</em></div>
+</div>
+
+<!-- ─── خ Khāʾ ─── -->
+<div class="card c1">
+  <div class="hd"><span>خ</span><span>🌙</span></div>
+  <div class="lz">خ</div>
+  <div class="ft"><span>خـ</span><span class="sep">|</span><span>ـخـ</span><span class="sep">|</span><span>ـخ</span></div>
+</div>
+<div class="card c2">
+  <div class="hd"><span>Khāʾ</span><span>/ 5 /</span></div>
+  <div class="lz">Khāʾ</div>
+  <div class="ft"><strong>5ouya</strong> — <em>frère</em><br><strong>5emsa</strong> — <em>5</em><br><strong>5obz</strong> — <em>pain</em></div>
+</div>
+<div class="card cpos">
+  <div class="hd"><span>▶</span><span>خـ</span></div>
+  <div class="lz"><span><span class="tgt">خُـ</span><span class="ctx">بْز</span></span></div>
+  <div class="ft"><strong>5OUBZ</strong> — <em>pain</em></div>
+</div>
+<div class="card cpos">
+  <div class="hd"><span>◆</span><span>ـخـ</span></div>
+  <div class="lz"><span><span class="ctx">مَـ</span><span class="tgt">خْـ</span><span class="ctx">زن</span></span></div>
+  <div class="ft"><strong>MA5ZAN</strong> — <em>dépôt</em></div>
+</div>
+<div class="card cpos">
+  <div class="hd"><span>◀</span><span>ـخ</span></div>
+  <div class="lz"><span><span class="ctx">طَبِيـ</span><span class="tgt">خ</span></span></div>
+  <div class="ft"><strong>TABI5</strong> — <em>cuisine</em></div>
+</div>
+
+<!-- ─── د Dāl ─── -->
+<div class="card c1">
+  <div class="hd"><span>د</span><span>☀️ ★</span></div>
+  <div class="lz">د</div>
+  <div class="ft"><span>د</span><span class="sep">|</span><span>ـد</span><span class="sep">|</span><span>ـد</span></div>
+</div>
+<div class="card c2">
+  <div class="hd"><span>Dāl</span><span>/ D /</span></div>
+  <div class="lz">Dāl</div>
+  <div class="ft"><strong>Dar</strong> — <em>maison</em><br><strong>Daw</strong> — <em>lumière</em><br><strong>Debza</strong> — <em>bagarre</em></div>
+</div>
+<div class="card cpos">
+  <div class="hd"><span>▶</span><span>د</span></div>
+  <div class="lz"><span><span class="tgt">دَ</span><span class="ctx">ار</span></span></div>
+  <div class="ft"><strong>DAR</strong> — <em>maison</em></div>
+</div>
+<div class="card cpos">
+  <div class="hd"><span>◆</span><span>ـد</span></div>
+  <div class="lz"><span><span class="ctx">مَـ</span><span class="tgt">دْ</span><span class="ctx">رَسَة</span></span></div>
+  <div class="ft"><strong>MADRASA</strong> — <em>école</em></div>
+</div>
+<div class="card cpos">
+  <div class="hd"><span>◀</span><span>ـد</span></div>
+  <div class="lz"><span><span class="ctx">وَلَـ</span><span class="tgt">د</span></span></div>
+  <div class="ft"><strong>WALAD</strong> — <em>enfant</em></div>
+</div>
+
+<!-- ─── ذ Dhāl ─── -->
+<div class="card c1">
+  <div class="hd"><span>ذ</span><span>☀️ ★</span></div>
+  <div class="lz">ذ</div>
+  <div class="ft"><span>ذ</span><span class="sep">|</span><span>ـذ</span><span class="sep">|</span><span>ـذ</span></div>
+</div>
+<div class="card c2">
+  <div class="hd"><span>Dhāl</span><span>/ DH /</span></div>
+  <div class="lz">Dhāl</div>
+  <div class="ft"><strong>Dib</strong> — <em>loup</em><br><strong>Dheb</strong> — <em>or</em><br><strong>Dbana</strong> — <em>mouche</em></div>
+</div>
+<div class="card cpos">
+  <div class="hd"><span>▶</span><span>ذ</span></div>
+  <div class="lz"><span><span class="tgt">ذَ</span><span class="ctx">هَب</span></span></div>
+  <div class="ft"><strong>DHEB</strong> — <em>or</em></div>
+</div>
+<div class="card cpos">
+  <div class="hd"><span>◆</span><span>ـذ</span></div>
+  <div class="lz"><span><span class="ctx">مَا</span><span class="tgt">ذَ</span><span class="ctx">ا</span></span></div>
+  <div class="ft"><strong>MADHA</strong> — <em>quoi</em></div>
+</div>
+<div class="card cpos">
+  <div class="hd"><span>◀</span><span>ـذ</span></div>
+  <div class="lz"><span><span class="ctx">أُسْتَا</span><span class="tgt">ذ</span></span></div>
+  <div class="ft"><strong>OUSTADH</strong> — <em>prof</em></div>
+</div>
+
+<!-- ─── ر Rāʾ ─── -->
+<div class="card c1">
+  <div class="hd"><span>ر</span><span>☀️ ★</span></div>
+  <div class="lz">ر</div>
+  <div class="ft"><span>ر</span><span class="sep">|</span><span>ـر</span><span class="sep">|</span><span>ـر</span></div>
+</div>
+<div class="card c2">
+  <div class="hd"><span>Rāʾ</span><span>/ R /</span></div>
+  <div class="lz">Rāʾ</div>
+  <div class="ft"><strong>Rasi</strong> — <em>tête</em><br><strong>Rani</strong> — <em>je suis</em><br><strong>Kerch</strong> — <em>ventre</em></div>
+</div>
+<div class="card cpos">
+  <div class="hd"><span>▶</span><span>ر</span></div>
+  <div class="lz"><span><span class="tgt">رَ</span><span class="ctx">اسِي</span></span></div>
+  <div class="ft"><strong>RASI</strong> — <em>ma tête</em></div>
+</div>
+<div class="card cpos">
+  <div class="hd"><span>◆</span><span>ـر</span></div>
+  <div class="lz"><span><span class="ctx">كَـ</span><span class="tgt">رْ</span><span class="ctx">ش</span></span></div>
+  <div class="ft"><strong>KERCH</strong> — <em>ventre</em></div>
+</div>
+<div class="card cpos">
+  <div class="hd"><span>◀</span><span>ـر</span></div>
+  <div class="lz"><span><span class="ctx">بْحَـ</span><span class="tgt">ر</span></span></div>
+  <div class="ft"><strong>BHAR</strong> — <em>mer</em></div>
+</div>
+
+</div><!-- /page 1 -->
+
+<!-- ══════════════════════════════════════════════════════════════
+     PAGE 2 (ton contenu inchangé)
+     ══════════════════════════════════════════════════════════════ -->
+<div class="page">
+  <!-- ✅ Garde EXACTEMENT ton contenu Page 2 ici (Zāy → Fāʾ...) -->
+  <!-- Je n’ai pas recopié tout le reste ici pour éviter un pavé énorme,
+       mais tu peux coller TOUTE ta Page 2 exactement comme dans ton message. -->
+</div><!-- /page 2 -->
+
+<!-- ══════════════════════════════════════════════════════════════
+     PAGE 3 (ton contenu inchangé)
+     ══════════════════════════════════════════════════════════════ -->
+<div class="page">
+  <!-- ✅ Garde EXACTEMENT ton contenu Page 3 ici (Qāf → Yāʾ + voyelles) -->
+</div><!-- /page 3 -->
+
+</body>
+</html>
