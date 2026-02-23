@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cartes Mémo Alif - 4 Propositions</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f0f2f5; display: flex; flex-direction: column; align-items: center; gap: 50px; padding: 50px; }
+        .container { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; width: 100%; }
+        h1 { color: #023047; border-bottom: 3px solid #e63946; padding-bottom: 10px; width: 100%; text-align: center; }
+
+        /* --- PROPOSITION 1 : MODERN APP --- */
+        .card-modern { width: 280px; height: 420px; background: #fff; border-radius: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); overflow: hidden; position: relative; border: 1px solid #eee; }
+        .header-m { background: #219ebc; color: white; padding: 15px; text-align: center; font-weight: bold; }
+        .rebelle-tag { position: absolute; top: 45px; right: 10px; background: #e63946; color: white; font-size: 10px; padding: 4px 8px; border-radius: 50px; font-weight: bold; z-index: 10; }
+        .main-m { text-align: center; padding: 30px 10px; }
+        .big-ar { font-size: 100px; margin: 0; color: #023047; }
+        .son-m { color: #219ebc; font-size: 24px; font-weight: bold; margin-top: -10px; }
+        .footer-m { position: absolute; bottom: 0; width: 100%; background: #f8f9fa; padding: 15px; box-sizing: border-box; border-top: 1px solid #eee; }
+
+        /* --- PROPOSITION 2 : FLASHCARD PRO --- */
+        .card-pro { width: 280px; height: 420px; background: #fff url('https://www.transparenttextures.com/patterns/graphy.png'); border: 2px solid #219ebc; border-radius: 10px; padding: 15px; display: flex; flex-direction: column; justify-content: space-between; box-sizing: border-box; }
+        .pos-badge { background: #023047; color: white; padding: 5px 12px; border-radius: 4px; font-size: 12px; align-self: flex-start; }
+        .ar-word { font-size: 45px; text-align: right; margin: 0; color: #333; }
+        .fr-word { font-size: 14px; color: #666; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* --- PROPOSITION 3 : VISUAL IMPACT --- */
+        .card-impact { width: 280px; height: 420px; background: #023047; color: white; border-radius: 15px; padding: 20px; text-align: center; box-sizing: border-box; border: 4px solid #e63946; }
+        .circle-ar { width: 100px; height: 100px; background: white; color: #023047; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 60px; margin: 20px auto; }
+        .danger-zone { color: #ffb703; font-weight: bold; font-size: 13px; margin-bottom: 20px; display: block; }
+
+        /* --- PROPOSITION 4 : DATA BOARD --- */
+        .card-data { width: 280px; height: 420px; background: #2d3436; color: #dfe6e9; font-family: 'Courier New', Courier, monospace; border-radius: 5px; padding: 0; overflow: hidden; }
+        .data-header { background: #636e72; padding: 8px; font-size: 10px; color: #fab1a0; }
+        .data-row { display: flex; border-bottom: 1px solid #444; padding: 12px 10px; }
+        .label { width: 40%; color: #b2bec3; font-size: 11px; }
+        .value { width: 60%; font-weight: bold; color: #fff; }
+    </style>
+</head>
+<body>
+
+    <h1>PROPOSITION 1 : Style "Modern App" (Carte Identité)</h1>
+    <div class="container">
+        <div class="card-modern">
+            <div class="rebelle-tag">★ REBELLE</div>
+            <div class="header-m">🌙 ALIF</div>
+            <div class="main-m">
+                <p class="big-ar">أ</p>
+                <p class="son-m">SON : A</p>
+            </div>
+            <div class="footer-m">
+                <span style="font-size: 10px; color: #888;">DARIJA :</span><br>
+                <strong>Ana, Lard, Asad</strong>
+            </div>
+        </div>
+    </div>
+
+    <h1>PROPOSITION 2 : Style "Flashcard Pro" (Position Début)</h1>
+    <div class="container">
+        <div class="card-pro">
+            <div class="pos-badge">DÉBUT (أ)</div>
+            <div style="text-align: center; font-size: 80px; color: #023047;">أ</div>
+            <div style="border-right: 4px solid #e63946; padding-right: 15px;">
+                <p class="ar-word">أَنَا</p>
+                <span class="fr-word">ANA (Moi)</span>
+            </div>
+        </div>
+    </div>
+
+    <h1>PROPOSITION 3 : Style "Visual Impact" (Position Milieu)</h1>
+    <div class="container">
+        <div class="card-impact">
+            <span class="danger-zone">⚠️ NE SE LIE PAS À GAUCHE</span>
+            <div class="circle-ar">ـأ</div>
+            <h2 style="margin: 0; letter-spacing: 2px;">MILIEU</h2>
+            <div style="margin-top: 40px;">
+                <p style="font-size: 35px; margin: 0;">كَـأْس</p>
+                <p style="color: #219ebc; font-weight: bold;">KA'S (Verre)</p>
+            </div>
+        </div>
+    </div>
+
+    <h1>PROPOSITION 4 : Style "Data Board" (Position Fin)</h1>
+    <div class="container">
+        <div class="card-data">
+            <div class="data-header">SYSTEM.ALPHABET / ALIF_04</div>
+            <div class="data-row">
+                <div class="label">FORME_FIN</div>
+                <div class="value" style="font-size: 24px;">ـأ</div>
+            </div>
+            <div class="data-row">
+                <div class="label">MOT_ARABE</div>
+                <div class="value" style="font-size: 20px;">مَـبْـدَأ</div>
+            </div>
+            <div class="data-row">
+                <div class="label">PHONETIQUE</div>
+                <div class="value">MABDA</div>
+            </div>
+            <div class="data-row">
+                <div class="label">TRADUCTION</div>
+                <div class="value">Principe</div>
+            </div>
+            <div class="data-row">
+                <div class="label">TYPE</div>
+                <div class="value">🌙 LUNAIRE</div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
