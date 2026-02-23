@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body { background: #fff; font-family: "Courier New", Courier, monospace; display: flex; flex-wrap: wrap; gap: 40px; padding: 40px; justify-content: center; color: #000; }
+        .card { width: 300px; height: 450px; border: 2px solid #000; position: relative; padding: 20px; box-sizing: border-box; display: flex; flex-direction: column; }
+        
+        /* 1. MINIMALISTE RADICAL (Focus Identité) */
+        .c1-big { font-size: 150px; text-align: center; margin: 40px 0; font-family: serif; }
+        .c1-info { border-top: 2px solid #000; padding-top: 10px; font-size: 14px; }
+
+        /* 2. GRILLE TECHNIQUE (Focus Positions) */
+        .c2-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; flex-grow: 1; border: 1px solid #000; margin: 10px 0; }
+        .c2-item { border: 1px solid #000; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+
+        /* 3. CONTRASTE INVERSÉ (Focus Rebelle) */
+        .c3-dark { background: #000; color: #fff; flex-grow: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        .c3-rebelle { border: 2px solid #fff; padding: 5px 10px; font-weight: bold; margin-bottom: 20px; }
+
+        /* 4. DICTIONNAIRE (Focus Darija) */
+        .c4-list { font-size: 13px; line-height: 1.6; margin-top: 20px; }
+        .c4-title { text-decoration: underline; font-weight: bold; }
+
+        /* 5. DIAGRAMME (Focus Type Solaire/Lunaire) */
+        .c5-type { font-size: 60px; text-align: center; margin-bottom: 10px; }
+
+        /* 6. TYPOGRAPHIQUE (Focus Nom/Son) */
+        .c6-name { font-size: 40px; font-weight: bold; text-align: center; border-bottom: 4px solid #000; }
+
+        /* 7. LINGUISTIQUE (Focus Mots AR) */
+        .c7-row { border-bottom: 1px solid #000; padding: 8px 0; display: flex; justify-content: space-between; font-size: 12px; }
+
+        /* 8. ABSTRAIT (Focus Forme Isolée) */
+        .c8-iso { border: 8px double #000; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: space-around; }
+        
+        .ar { font-family: serif; font-size: 30px; direction: rtl; }
+        .rebelle-marker { position: absolute; top: 10px; right: 10px; font-size: 18px; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <div>ALIF / A / 🌙</div>
+        <div class="c1-big">أ</div>
+        <div class="c1-info">
+            <strong>ISOLÉE:</strong> ★ OUI (REBELLE)<br>
+            <strong>DARIJA:</strong> Ana, Lard, Asad
+        </div>
+    </div>
+
+    <div class="card">
+        <div style="text-align: center; font-weight: bold;">POSITIONS</div>
+        <div class="c2-grid">
+            <div class="c2-item"><span class="ar">أ</span><small>DÉBUT</small></div>
+            <div class="c2-item"><span class="ar">ـأ</span><small>MILIEU</small></div>
+            <div class="c2-item"><span class="ar">ـأ</span><small>FIN</small></div>
+            <div class="c2-item"><span class="ar">أ</span><small>ISOLÉE</small></div>
+        </div>
+        <div style="font-size: 11px;">REBELLE : PAS DE LIAISON GAUCHE</div>
+    </div>
+
+    <div class="card">
+        <div class="c3-dark">
+            <div class="c3-rebelle">REBELLE</div>
+            <div style="font-size: 100px;">أ</div>
+            <p style="text-align: center; padding: 0 10px;">NE SE LIE JAMAIS APRÈS</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="c6-name">ALIF</div>
+        <div class="c4-list">
+            <p><span class="c4-title">TRIO DARIJA</span><br>1. Ana (Moi)<br>2. Lard (Sol)<br>3. Asad (Lion)</p>
+            <p><span class="c4-title">TYPE</span><br>LUNAIRE 🌙</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="c5-type">🌙</div>
+        <div style="text-align: center; font-weight: bold;">LUNAIRE</div>
+        <div class="c1-big" style="margin: 10px 0;">أ</div>
+        <div style="border: 1px solid #000; padding: 10px; font-size: 12px;">
+            L'article "AL" se prononce distinctement avec cette lettre.
+        </div>
+    </div>
+
+    <div class="card" style="justify-content: center;">
+        <div style="font-size: 80px; text-align: center; font-weight: bold;">A</div>
+        <div style="font-size: 25px; text-align: center; letter-spacing: 10px;">ALIF</div>
+        <div class="ar" style="text-align: center; font-size: 60px; margin-top: 20px;">أ</div>
+    </div>
+
+    <div class="card">
+        <div class="c7-row"><span>DÉBUT</span><span class="ar">أَنَا</span><span>ANA</span></div>
+        <div class="c7-row"><span>MILIEU</span><span class="ar">كَأْس</span><span>KA'S</span></div>
+        <div class="c7-row"><span>FIN</span><span class="ar">مَبْدَأ</span><span>MABDA</span></div>
+        <div style="margin-top: auto; font-size: 10px;">TRAD : MOI / VERRE / PRINCIPE</div>
+    </div>
+
+    <div class="card">
+        <div class="c8-iso">
+            <span style="font-size: 14px;">ISOLÉE</span>
+            <span class="ar" style="font-size: 120px;">أ</span>
+            <span style="font-size: 14px;">★ REBELLE</span>
+        </div>
+    </div>
+
+</body>
+</html>
