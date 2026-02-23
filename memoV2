@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Cartes Mémo Arabe — Version Algérie</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Courier+Prime:wght@400;700&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+@page {
+  size: A4 portrait;
+  margin: 6mm;
+}
+
+body {
+  background: white;
+  font-family: 'Courier Prime', monospace;
+  color: #1a1a1a;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.page {
+  width: 198mm;
+  height: 285mm;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(9, 1fr);
+  gap: 0;
+  page-break-after: always;
+  overflow: hidden;
+}
+
+.card {
+  border: 0.4pt dashed #aaa;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  background: white;
+  text-align: center;
+}
+
+.pos {
+  width: 100%;
+  text-align: center;
+  font-size: 5.5pt;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #111;
+  font-weight: 700;
+  padding: 1.5mm 0 1mm;
+  border-bottom: 0.3pt solid #ddd;
+  flex-shrink: 0;
+}
+
+.body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1mm 1mm 1.5mm;
+  gap: 1mm;
+}
+
+.sol-lun {
+  position: absolute;
+  top: 1.2mm;
+  right: 1.5mm;
+  font-size: 6.5pt;
+  line-height: 1;
+}
+
+.ar {
+  font-family: 'Amiri', serif;
+  direction: rtl;
+  text-align: center;
+  line-height: 1.1;
+}
+
+.big { font-size: 20pt; color: #000; }
+.word { font-size: 11pt; line-height: 1.25; }
+.hl  { font-weight: 700; color: #000; font-size: 1.45em; }
+.dim { color: #999; font-size: 0.82em; }
+
+.name  { font-size: 7.5pt; font-weight: 700; color: #111; }
+.sound { font-size: 5.5pt; color: #555; margin-top: 0.5mm; }
+.trans { font-size: 5pt; color: #444; }
+.nc { font-size: 6pt; color: #aaa; letter-spacing: 0.04em; margin-top: 0.3mm; }
+
+.band {
+  grid-column: span 6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0.4pt dashed #aaa;
+  font-size: 5pt;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #888;
+  font-weight: 700;
+  gap: 4mm;
+}
+
+.empty { border: 0.4pt dashed #e8e8e8; }
+
+.legend {
+  grid-column: span 6;
+  border: 0.4pt dashed #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8mm;
+  font-size: 4.5pt;
+  color: #888;
+  padding: 1mm;
+}
+</style>
+</head>
+<body>
+
+<div class="page">
+<div class="band">consonnes</div>
+
+<div class="card"><div class="sol-lun">🌙</div><div class="body"><div class="ar big">ب</div><div class="sound">Bāʾ · b</div></div></div>
+<div class="card"><div class="sol-lun">🌙</div><div class="body"><div class="name">Bāʾ</div><div class="sound">b — bateau</div></div></div>
+<div class="card"><div class="pos">début</div><div class="sol-lun">🌙</div><div class="body"><div class="ar word"><span class="hl">بَـ</span><span class="dim">اب</span></div><div class="trans">BĀB — porte</div></div></div>
+<div class="card"><div class="pos">milieu</div><div class="sol-lun">🌙</div><div class="body"><div class="ar word"><span class="dim">كِـ</span><span class="hl">ـبَـ</span><span class="dim">ـار</span></div><div class="trans">KIBĀR — grands</div></div></div>
+<div class="card"><div class="pos">fin</div><div class="sol-lun">🌙</div><div class="body"><div class="ar word"><span class="dim">كَلْـ</span><span class="hl">ـب</span></div><div class="trans">KALB — chien</div></div></div>
+<div class="empty"></div>
+
+<div class="card"><div class="sol-lun">☀️</div><div class="body"><div class="ar big">ن</div><div class="sound">Nūn · n</div></div></div>
+<div class="card"><div class="sol-lun">☀️</div><div class="body"><div class="name">Nūn</div><div class="sound">n — nuit</div></div></div>
+<div class="card"><div class="pos">début</div><div class="sol-lun">☀️</div><div class="body"><div class="ar word"><span class="hl">نَـ</span><span class="dim">هَر</span></div><div class="trans">N'HAR — jour</div></div></div>
+<div class="card"><div class="pos">milieu</div><div class="sol-lun">☀️</div><div class="body"><div class="ar word"><span class="dim">قَـ</span><span class="hl">ـنَـ</span><span class="dim">اة</span></div><div class="trans">QANĀT — canal</div></div></div>
+<div class="card"><div class="pos">fin</div><div class="sol-lun">☀️</div><div class="body"><div class="ar word"><span class="dim">لَوْ</span><span class="hl">ن</span></div><div class="trans">LAWN — couleur</div></div></div>
+<div class="empty"></div>
+
+<div class="band">voyelles courtes — exemples sur ب</div>
+
+<div class="card"><div class="body"><div class="name">Fatha</div><div class="sound">a — p<u>a</u>tte</div></div></div>
+<div class="card"><div class="body"><div class="ar" style="font-size:24pt;">بَ</div></div></div>
+<div class="card"><div class="pos">exemple</div><div class="body"><div class="ar word"><span class="hl">بَـ</span><span class="dim">ـرَد</span></div><div class="trans">BARAD — grêle</div></div></div>
+
+<div class="card"><div class="body"><div class="name">Kasra</div><div class="sound">i — v<u>i</u>e</div></div></div>
+<div class="card"><div class="body"><div class="ar" style="font-size:24pt;">بِ</div></div></div>
+<div class="card"><div class="pos">exemple</div><div class="body"><div class="ar word"><span class="hl">بِـ</span><span class="dim">ـنت</span></div><div class="trans">BINT — fille</div></div></div>
+
+<div class="card"><div class="body"><div class="name">Damma</div><div class="sound">ou — l<u>ou</u>p</div></div></div>
+<div class="card"><div class="body"><div class="ar" style="font-size:24pt;">بُ</div></div></div>
+<div class="card"><div class="pos">exemple</div><div class="body"><div class="ar word"><span class="hl">بُـ</span><span class="dim">ـيوت</span></div><div class="trans">BUYŪT — maisons</div></div></div>
+
+<div class="card"><div class="body"><div class="name">Soukoun</div><div class="sound">∅ — pas de voyelle</div></div></div>
+<div class="card"><div class="body"><div class="ar" style="font-size:24pt;">بْ</div></div></div>
+<div class="card"><div class="pos">exemple</div><div class="body"><div class="ar word"><span class="dim">حَـ</span><span class="hl">ـبْـ</span><span class="dim">ـل</span></div><div class="trans">HABL — corde</div></div></div>
+
+<div class="legend">
+  <span>☀️ = solaire</span>
+  <span>🌙 = lunaire</span>
+  <span><strong>Noir</strong> = cible · Gris = contexte</span>
+</div>
+</div>
+</body>
+</html>
+
